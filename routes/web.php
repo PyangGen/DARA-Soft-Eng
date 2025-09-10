@@ -26,7 +26,7 @@ Route::prefix('/')->group(function (){
 });
 
 Route::prefix('student')->group(function (){
-    Route::get('/', [StudentController::class, 'dashboard_page']);
+    Route::get('/dashboard', [StudentController::class, 'dashboard_page']);
     Route::get('/submission/', [StudentController::class, 'submission_page']);
     Route::get('/doc-status/', [StudentController::class, 'doc_status_page']);
     Route::get('/pdf-reader/{id}', [StudentController::class, 'pdf_reader_page']);
