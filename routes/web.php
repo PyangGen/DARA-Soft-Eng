@@ -8,10 +8,9 @@ use App\Http\Controllers\OtpController; // OTP Module
 use App\Http\Controllers\Controller; // PDF Reader Module
 
 use App\Http\Controllers\StudentController; // Student Functions
-
 use App\Http\Controllers\TeacherController; // Teacher Functions
-
 use App\Http\Controllers\AdminController; // Admin Functions
+
 
 Route::prefix('/')->group(function (){
     Route::get('/', [QueryController::class, 'landing_page']);
@@ -27,7 +26,8 @@ Route::prefix('/')->group(function (){
 
 Route::prefix('student')->group(function (){
     Route::get('/dashboard', [StudentController::class, 'dashboard_page']);
-    Route::get('/submission/', [StudentController::class, 'submission_page']);
+    Route::get('/submission', [StudentController::class, 'submission_page'])->name('student.submission');
+    Route::post('/submit', [StudentController::class, 'submit_document'])->name('student.submit'); // ✅ NEW: Handles form submission
     Route::get('/doc-status/', [StudentController::class, 'doc_status_page']);
     Route::get('/pdf-reader/{id}', [StudentController::class, 'pdf_reader_page']);
     Route::get('/account-setting/', [StudentController::class, 'account_setting_page']);
@@ -61,4 +61,5 @@ Route::prefix('environment')->group(function (){
 
 
 });
+
 

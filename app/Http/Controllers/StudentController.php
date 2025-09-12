@@ -3,6 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
+use App\Models\DocumentRepository;
+use App\Models\User;
 
 class StudentController extends Controller
 {
@@ -13,9 +16,34 @@ class StudentController extends Controller
      */
     public function dashboard_page()
     {
-        // This function loads the dashboard.blade.php file.
-        // It looks for the file in the 'resources/views/' directory.
-        return view('student.dashboard');
+        $studentId = 1; // Get logged-in student's ID
+
+        // Fetch counts dynamically
+        $submittedStudies = DocumentRepository::where('student_id', $studentId)->count();
+
+        $approvedStudies = DocumentRepository::where('student_id', $studentId)
+                            ->where('status', 'approved')
+                            ->count();
+
+        $pendingStudies = DocumentRepository::where('student_id', $studentId)
+                            ->where('status', 'pending')
+                            ->count();
+
+        $revisionsToDo = DocumentRepository::where('student_id', $studentId)
+                            ->where('status', 'revision')
+                            ->count();
+
+        $rejectedStudies = DocumentRepository::where('student_id', $studentId)
+                            ->where('status', 'rejected')
+                            ->count();
+
+        return view('student.dashboard', compact(
+            'submittedStudies',
+            'approvedStudies',
+            'pendingStudies',
+            'revisionsToDo',
+            'rejectedStudies'
+        ));
     }
 
     /**
@@ -23,10 +51,46 @@ class StudentController extends Controller
      *
      * @return \Illuminate\View\View
      */
-    public function submission_page()
+     public function submission_page()
     {
-        // Assuming there is a submission.blade.php view file.
-        return view('student.submission');
+        // Load teachers for dropdown
+        $teachers = User::where('role', 'teacher')->get();
+        return view('student.submission', compact('teachers'));
+    }
+
+    public function submit_document(Request $request)
+    {
+        $request->validate([
+            'title' => 'required|string|max:255',
+            'abstract' => 'required|string',
+            'teacher_id' => 'required|exists:users,user_id',
+            'publication_date' => 'nullable|date',
+            'document_types' => 'required|array',
+            'document_types.*' => 'string',
+            'file' => 'required|mimes:pdf|max:20480', // 20MB max
+        ]);
+
+        // Handle file upload
+        $filePath = $request->file('file')->store('documents', 'public');
+
+        // Save document
+        DocumentRepository::create([
+            'title' => $request->title,
+            'student_id' => Auth::id(),
+            'teacher_id' => $request->teacher_id,
+            'authors' => $request->co_authors,
+            'citation' => $request->citations,
+            'metadata' => json_encode([
+                'keywords' => $request->keywords,
+                'document_types' => $request->document_types
+            ]),
+            'file' => $filePath,
+            'status' => 'pending',
+            'date_submitted' => now(),
+            'study_type' => implode(', ', $request->document_types),
+        ]);
+
+        return redirect()->route('student.submission')->with('success', 'Document submitted successfully!');
     }
 
     /**

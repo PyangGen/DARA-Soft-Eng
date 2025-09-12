@@ -51,7 +51,7 @@ header h2 {
                                 <line x1="15" y1="12" x2="3" y2="12" />
                             </svg>
             </div>
-            <h2 >DARA</h2>
+            <h2 >DARA TEST</h2>
           
         </header> 
          
@@ -137,7 +137,7 @@ header h2 {
                             </div>
 
                             <div class="count">
-                                3
+                                {{ $submittedStudies }}
                             </div>
 
                             <div class="text">
@@ -166,7 +166,7 @@ header h2 {
                             </div>
 
                             <div class="count">
-                                1
+                                {{ $approvedStudies }}
                             </div>
 
                             <div class="text">
@@ -200,7 +200,7 @@ header h2 {
                             </div>
 
                             <div class="count">
-                                 5
+                                {{ $pendingStudies }}
                             </div>
 
                             <div class="text">
@@ -229,7 +229,7 @@ header h2 {
                             </div>
 
                             <div class="count">
-                               8
+                                {{ $revisionsToDo }}
                             </div>
 
                             <div class="text">
@@ -257,7 +257,7 @@ header h2 {
                             </div>
 
                             <div class="count">
-                                4
+                                {{ $rejectedStudies }}
                             </div>
 
                             <div class="text">

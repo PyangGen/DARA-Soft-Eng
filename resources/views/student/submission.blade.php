@@ -36,6 +36,17 @@ header h2 {
     text-align: left;
 }
 
+/* When checkbox is checked → parent box turns theme color */
+.chkbx:has(input[type="checkbox"]:checked) {
+    background-color: #04128e;
+}
+
+/* When checkbox is checked → label turns white */
+.chkbx:has(input[type="checkbox"]:checked) label {
+    color: white;
+}
+
+
 </style>
 <body>
     <main>
@@ -139,7 +150,18 @@ header h2 {
                 </div>
 
                 <h1 style="font-weight: bolder;color: black;">SUBMIT A DOCUMENT</h1>
-                <form style="background-color: #f5f5f5; padding: 20px; border-radius: 30px;" id="documentForm" method="post" enctype="multipart/form-data" action="submit">
+                @if(session('success'))
+                    <div style="color: green; text-align: center; margin-bottom: 15px;">
+                        {{ session('success') }}
+                    </div>
+                @endif
+                <form 
+                    style="background-color: #f5f5f5; padding: 20px; border-radius: 30px;" 
+                    id="documentForm" 
+                    method="post" 
+                    enctype="multipart/form-data" 
+                    action="{{ route('student.submit') }}"
+                >
                     @csrf
                    <label for="title">Title:</label>
                         <input  style="font-weight: bold; border: 1px solid black;" id="title" type="text" name="title" required style="font-weight: bold;"><br>
@@ -155,10 +177,11 @@ header h2 {
                         <input id="keywords" type="text" name="keywords" 
                             style="font-weight: bold; border: 1px solid black;"><br><br>
 
-                        <label for="teacher_id">Teacher:</label>
-                        <select id="teacher_id" name="teacher_id" required 
-                            style="font-weight: bold; border: 1px solid black;">
-                            <!-- options here -->
+                        <select id="teacher_id" name="teacher_id" style="font-weight: bold; border: 1px solid black;">
+                        <option value="">-- Select Teacher --</option>
+                        @foreach($teachers as $teacher)
+                            <option value="{{ $teacher->user_id }}">{{ $teacher->name }}</option>
+                        @endforeach
                         </select><br><br>
 
                         <label for="publication_date">Submission Date:</label>
@@ -190,27 +213,27 @@ header h2 {
                     </div>
 
                     <div class="checkboxes">
-                        <div class="chkbx">
-                            <input  class="w3-check" type="checkbox" name="document_types[]" value="Case Study">
-                            <label  class="tada">Case Study</label> 
-                        </div>
-                        <div class="chkbx">
-                            <input class="w3-check" type="checkbox" name="document_types[]" value="Thesis">
-                            <label class="tada">Thesis</label>
-                        </div>
-                        <div class="chkbx">
-                            <input class="w3-check" type="checkbox" name="document_types[]" value="Proposal">
-                            <label class="tada">Proposal</label>
-                        </div>
-                        <div class="chkbx">
-                            <input class="w3-check" type="checkbox" name="document_types[]" value="Capstone">
-                            <label class="tada">Capstone</label>
-                        </div>
-                        <div class="chkbx">
-                            <input class="w3-check" type="checkbox" name="document_types[]" value="System Studies">
-                            <label class="tada">System Studies</label>
-                        </div>
-                    </div>
+    <div class="chkbx">
+        <input id="case" type="checkbox" name="document_types[]" value="Case Study">
+        <label for="case">Case Study</label> 
+    </div>
+    <div class="chkbx">
+        <input id="thesis" type="checkbox" name="document_types[]" value="Thesis">
+        <label for="thesis">Thesis</label>
+    </div>
+    <div class="chkbx">
+        <input id="proposal" type="checkbox" name="document_types[]" value="Proposal">
+        <label for="proposal">Proposal</label>
+    </div>
+    <div class="chkbx">
+        <input id="capstone" type="checkbox" name="document_types[]" value="Capstone">
+        <label for="capstone">Capstone</label>
+    </div>
+    <div class="chkbx">
+        <input id="system" type="checkbox" name="document_types[]" value="System Studies">
+        <label for="system">System Studies</label>
+    </div>
+</div>
                     <button style="background-color: #04128e" class="submission" type="submit" id="submitButton" disabled>Submit</button>
                     <div id="alrt" style="color: black; margin-top: 10px; text-align: center;"></div>
                 </form>
@@ -222,6 +245,36 @@ header h2 {
         <footer>
         </footer>
     </main>
+        <script>
+        const fileInput = document.getElementById('fileID');
+        const chooseFileBtn = document.getElementById('chooseFileBtn');
+        const fileNameDisplay = document.getElementById('fileNameDisplay');
+        const submitButton = document.getElementById('submitButton');
+        const checkboxes = document.querySelectorAll('input[name="document_types[]"]');
+
+        // Enable button only if file + checkbox selected
+        function updateSubmitState() {
+            const fileSelected = fileInput.files.length > 0;
+            const checkboxSelected = Array.from(checkboxes).some(cb => cb.checked);
+            submitButton.disabled = !(fileSelected && checkboxSelected);
+        }
+
+        // File button click
+        chooseFileBtn.addEventListener('click', function() {
+            fileInput.click();
+        });
+
+        // When file is selected
+        fileInput.addEventListener('change', function() {
+            fileNameDisplay.innerText = this.files[0]?.name || '';
+            updateSubmitState();
+        });
+
+        // When any checkbox changes
+        checkboxes.forEach(cb => {
+            cb.addEventListener('change', updateSubmitState);
+        });
+    </script>
 </body>
 </html>
 
