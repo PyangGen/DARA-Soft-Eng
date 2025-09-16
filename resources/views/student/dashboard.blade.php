@@ -14,63 +14,84 @@
     header {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* DARA sa left, icon sa right */
-    padding: 10px 20px;
-    background-color: #fdf9e9; /* same bg */
-    border-bottom: 2px solid #000; /* optional separator */
-}
-
-header h2 {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    color: #04128e;
-    text-align: left;
-}
-
-    
+    justify-content: space-between;
+    padding: 10px 30px !important;
+    background-color: #fdf9e9;
+    border-bottom: 3px solid #000 !important;
+    }
+    .left {
+        border-right: 3px solid #000 !important;
+    }
+    header h2 {
+        letter-spacing: 5px;
+		margin-left: 35px;
+        padding: 0;
+        font-weight: bold;
+        color: #04128e;
+        text-align: left;
+    }
+    .profile {
+        margin-top: 10px ;
+    }
+    .profile h2 {
+        font-weight: bold; 
+        font-size: 20px; 
+        color: #000;
+        letter-spacing: 2px;
+    }
+    .ahh {
+        display: flex;
+        align-items: center;
+    }
+    .cardco .text {
+        margin-left: 15px;
+    }
+    .cardco .count {
+        margin: none;
+    }
 </style>
 <body >
     <main >
         <header> 
               <div class="ahh">
                 <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="30"
-                                height="34"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="feather feather-log-in"
-                                >
-                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                                <polyline points="10 17 15 12 10 7" />
-                                <line x1="15" y1="12" x2="3" y2="12" />
-                            </svg>
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-log-in"
+                    >
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                    <polyline points="10 17 15 12 10 7" />
+                    <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
             </div>
-            <h2 >DARA TEST</h2>
-          
+            <h2 >DARA</h2>
         </header> 
          
         <div class="main" >
             <div class="left">
-                <div class="profile">
-                    <h2></h2>
-                </div>
                 <nav class="nav-links" >
+                    <div class="profile">
+                        <h2>
+                            {{ Auth::user()->first_name }}
+                        </h2>
+                    </div>
                     <a href="" style="color: #04128e; 
-          font-weight: bold; 
-          width: 140px;
-          border: 2px solid #04128e; 
-           margin-left:10px;
-          background-color: #ffffff; 
-          border-radius: 8px; 
-          text-decoration: none;
-          font-size: 14px;">
-                        <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' >
+                                    font-weight: bold; 
+                                    width: 140px;
+                                    border: 2px solid #04128e; 
+                                    margin-left:10px;
+                                    background-color: #ffffff; 
+                                    border-radius: 8px; 
+                                    text-decoration: none;
+                                    font-size: 14px;">
+                    <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd' >
                        <svg width="24"
                             height="24" enable-background="new 0 0 64 64" id="Layer_1" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M38,54.0001221c0,1.1044922,0.8955078,2,2,2s2-0.8955078,2-2v-1c0-4.9624023-4.0375977-9-9-9h-2   c-4.9624023,0-9,4.0375977-9,9v1c0,1.1044922,0.8955078,2,2,2s2-0.8955078,2-2v-1c0-2.7568359,2.2431641-5,5-5h2   c2.7568359,0,5,2.2431641,5,5V54.0001221z"/><path d="M61.2695313,24.4547119l-28-23c-0.7382813-0.6064453-1.8007813-0.6064453-2.5390625,0l-28,23   C2.2680664,24.8345947,2,25.4014893,2,26.0001221v8c0,1.1044922,0.8955078,2,2,2h3v25c0,1.1044922,0.8955078,2,2,2h15   c1.1044922,0,2-0.8955078,2-2s-0.8955078-2-2-2H11v-25c0-1.1044922-0.8955078-2-2-2H6v-5.0546875L32,5.588501l26,21.3569336   v5.0546875h-3c-1.1044922,0-2,0.8955078-2,2v25H40c-1.1044922,0-2,0.8955078-2,2s0.8955078,2,2,2h15c1.1044922,0,2-0.8955078,2-2   v-25h3c1.1044922,0,2-0.8955078,2-2v-8C62,25.4014893,61.7319336,24.8345947,61.2695313,24.4547119z"/></g></svg>
 
@@ -115,36 +136,33 @@ header h2 {
             </div>
  
             <div class="right" style="overflow: auto; margin-top: -40px;">
-
                <h1 style="font-weight: bolder; color: #000080;">Welcome, Neil! You have</h1>
 
                     <div class="cardco">
                        <a href="doc-status" class="cards submit" style="text-decoration: none; color: inherit;">
-    <div class="svg1">
-        <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="100"
-            height="100"
-            viewBox="0 0 24 24"
-            fill="none"
-            stroke="currentColor"
-            stroke-width="2"
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            class="feather feather-book"
-        >
-            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
-            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
-        </svg>
-    </div>
+                    <div class="svg1">
+                        <svg
+                            xmlns="http://www.w3.org/2000/svg"
+                            width="100"
+                            height="100"
+                            viewBox="0 0 24 24"
+                            fill="none"
+                            stroke="currentColor"
+                            stroke-width="2"
+                            stroke-linecap="round"
+                            stroke-linejoin="round"
+                            class="feather feather-book"
+                        >
+                            <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20" />
+                            <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z" />
+                        </svg>
+                    </div>
 
-    <div class="count">4</div>
-
-    <div class="text">
-        <p>SUBMITTED STUDIES</p>
-    </div>
-</a>
-
+                        <div class="count">{{ $submittedStudies }}</div>
+                        <div class="text">
+                            <p>SUBMITTED STUDIES</p>
+                        </div>
+                        </a>
 
                         <a href="doc-status#approved-studies" style="text-decoration: none; color: inherit;" class="cards published">
                             <div class="svg2">
@@ -158,17 +176,13 @@ header h2 {
                                     stroke-width="2"
                                     stroke-linecap="round"
                                     stroke-linejoin="round"
-                                    class="feather feather-check-square"
-                                    >
+                                    class="feather feather-check-square">
                                     <polyline points="9 11 12 14 22 4" />
                                     <path d="M21 12v7a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h11" />
                                 </svg>
                             </div>
 
-                            <div class="count">
-                                {{ $approvedStudies }}
-                            </div>
-
+                            <div class="count">{{ $approvedStudies }}</div>
                             <div class="text">
                                 <p>APPROVED STUDIES</p>
                             </div>
@@ -199,10 +213,7 @@ header h2 {
                                 </svg>
                             </div>
 
-                            <div class="count">
-                                 5
-                            </div>
-
+                            <div class="count">{{ $pendingStudies }}</div>
                             <div class="text">
                                 <p>PENDING STUDIES</p>
                             </div>
@@ -228,10 +239,7 @@ header h2 {
                                 </svg>
                             </div>
 
-                            <div class="count">
-                               8
-                            </div>
-
+                            <div class="count">{{ $revisionsToDo }}</div>
                             <div class="text">
                                 <p>REVISION(S) TO DO</p>
                             </div>
@@ -256,18 +264,14 @@ header h2 {
                                 </svg>
                             </div>
 
-                            <div class="count">
-                                4
-                            </div>
-
+                            <div class="count">{{ $rejectedStudies }}</div>
                             <div class="text">
                                 <p>REJECTED STUDIES</p>
                             </div>
                         </a>
                     </div>
+                </div>
             </div>
-        </div>
-
         <footer>
         </footer>
     </main>

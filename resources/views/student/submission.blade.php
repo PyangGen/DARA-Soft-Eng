@@ -9,90 +9,104 @@
     <link rel="stylesheet" href="{{ asset('../../css/svg.css') }}">
 </head>
 <style>
-.submission{
-    background-color: #ff4d4d;
-    color: white;
-    padding: 10px 20px;
-    border-radius: 10px;
-    
-}
+    .submission{
+        background-color: #ff4d4d;
+        color: white;
+        padding: 10px 20px;
+        border-radius: 10px;
+        
+    }
     body {
         background-color: #fdf9e9;
     }
     header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between; /* DARA sa left, icon sa right */
-    padding: 10px 20px;
-    background-color: #fdf9e9; /* same bg */
-    border-bottom: 2px solid #000; /* optional separator */
-}
-
-header h2 {
-    margin: 0;
-    padding: 0;
-    font-weight: bold;
-    color: #04128e;
-    text-align: left;
-}
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px !important;
+        background-color: #fdf9e9;
+        border-bottom: 3px solid #000 !important;
+    }
+    .left {
+        border-right: 3px solid #000 !important;
+    }
+    header h2 {
+        letter-spacing: 5px;
+		margin-left: 35px;
+        padding: 0;
+        font-weight: bold;
+        color: #04128e;
+        text-align: left;
+    }
+    .profile {
+    margin-top: 10px ;
+    }
+    .profile h2 {
+        font-weight: bold; 
+        font-size: 20px; 
+        color: #000;
+        letter-spacing: 2px;
+    }
+    .ahh {
+        display: flex;
+        align-items: center;
+    }
     .error {
         color: red;
         font-size: 0.9em;
         margin-bottom: 10px;
     }
-    /* ✅ Only change the input box when checked */
-.checkboxes input[type="checkbox"]:checked {
-    background-color: red;       /* Red background */
-    border-color: red;           /* Red border */
-    accent-color: red;           /* For modern browsers */
-}
-
-/* When checkbox is checked → parent box turns theme color */
-.chkbx:has(input[type="checkbox"]:checked) {
-    background-color: #04128e;
-}
-
-/* When checkbox is checked → label turns white */
-.chkbx:has(input[type="checkbox"]:checked) label {
-    color: white;
-}
-
-
-/* ✅ Make the check mark white */
-.checkboxes input[type="checkbox"]:checked::before {
-    color: white;
-}   
+    .chkbx {
+        display: flex;
+        justify-content: center;
+    }
+    .checkboxes input[type="checkbox"]:checked {
+        background-color: red;
+        border-color: red;
+        accent-color: red;
+    }
+    .chkbx:has(input[type="checkbox"]:checked) {
+        background-color: #04128e;
+    }
+    .chkbx:has(input[type="checkbox"]:checked) label {
+        color: white;
+    }
+    .checkboxes input[type="checkbox"]:checked::before {
+        color: white;
+    }
+    .container .card{
+        height: 330px;
+        width: 100%;
+    }
 </style>
 <body>
     <main>
         <header> 
-              <div class="ahh">
+            <div class="ahh">
                 <svg
-                                xmlns="http://www.w3.org/2000/svg"
-                                width="30"
-                                height="34"
-                                viewBox="0 0 24 24"
-                                fill="none"
-                                stroke="currentColor"
-                                stroke-width="2"
-                                stroke-linecap="round"
-                                stroke-linejoin="round"
-                                class="feather feather-log-in"
-                                >
-                                <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                                <polyline points="10 17 15 12 10 7" />
-                                <line x1="15" y1="12" x2="3" y2="12" />
-                            </svg>
+                    xmlns="http://www.w3.org/2000/svg"
+                    width="25"
+                    height="25"
+                    viewBox="0 0 24 24"
+                    fill="none"
+                    stroke="currentColor"
+                    stroke-width="3"
+                    stroke-linecap="round"
+                    stroke-linejoin="round"
+                    class="feather feather-log-in"
+                    >
+                    <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+                    <polyline points="10 17 15 12 10 7" />
+                    <line x1="15" y1="12" x2="3" y2="12" />
+                </svg>
             </div>
             <h2 >DARA</h2>
-          
         </header> 
         
         <div class="main" style="height: 100%; ">
             <div class="left">
                 <div class="profile">
                     <h2></h2>
-                    
                 </div>
 
                 <nav class="nav-links">
@@ -107,19 +121,17 @@ header h2 {
                         Search Studies
                     </a>
                     <nav class="nav-links">
-                     <a href="student/submission" style="color: #04128e; 
-          font-weight: bold; 
-          width: 145px;
-          border: 2px solid #04128e; 
-          margin-left:10px;
-          background-color: #ffffff; 
-          border-radius: 8px; 
-          text-decoration: none;
-          font-size: 14px;">
-                        <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path d="M35,2H17c-0.2651367,0-0.5195313,0.1054688-0.7070313,0.2929688l-8,8C8.1054688,10.4804688,8,10.734375,8,11v30  c0,2.7568359,2.2431641,5,5,5h22c2.7568359,0,5-2.2431641,5-5V7C40,4.2431641,37.7568359,2,35,2z M38,41  c0,1.6542969-1.3457031,3-3,3H13c-1.6542969,0-3-1.3457031-3-3V11.4140625L17.4140625,4H35c1.6542969,0,3,1.3457031,3,3V41z M17,14  h-5c-0.5522461,0-1-0.4472656-1-1s0.4477539-1,1-1h5c0.5512695,0,1-0.4482422,1-1V6c0-0.5527344,0.4477539-1,1-1s1,0.4472656,1,1v5  C20,12.6542969,18.6542969,14,17,14z M24,17c-4.9624023,0-9,4.0371094-9,9s4.0375977,9,9,9s9-4.0371094,9-9S28.9624023,17,24,17z   M24,33c-3.8598633,0-7-3.140625-7-7s3.1401367-7,7-7s7,3.140625,7,7S27.8598633,33,24,33z M27.7070313,24.2929688  c0.390625,0.390625,0.390625,1.0234375,0,1.4140625C27.5117188,25.9023438,27.2558594,26,27,26  s-0.5117188-0.0976563-0.7070313-0.2929688L25,24.4140625V30c0,0.5527344-0.4477539,1-1,1s-1-0.4472656-1-1v-5.5859375  l-1.2929688,1.2929688c-0.390625,0.390625-1.0234375,0.390625-1.4140625,0s-0.390625-1.0234375,0-1.4140625l3-3  c0.390625-0.390625,1.0234375-0.390625,1.4140625,0L27.7070313,24.2929688z"/></svg>
-                    
-                        Submit Studies
-                    </a>
+                        <a href="student/submission" style="color: #04128e; font-weight: bold; 
+                            width: 145px;
+                            border: 2px solid #04128e; 
+                            margin-left:10px;
+                            background-color: #ffffff; 
+                            border-radius: 8px; 
+                            text-decoration: none;
+                            font-size: 14px;">
+                            <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path d="M35,2H17c-0.2651367,0-0.5195313,0.1054688-0.7070313,0.2929688l-8,8C8.1054688,10.4804688,8,10.734375,8,11v30  c0,2.7568359,2.2431641,5,5,5h22c2.7568359,0,5-2.2431641,5-5V7C40,4.2431641,37.7568359,2,35,2z M38,41  c0,1.6542969-1.3457031,3-3,3H13c-1.6542969,0-3-1.3457031-3-3V11.4140625L17.4140625,4H35c1.6542969,0,3,1.3457031,3,3V41z M17,14  h-5c-0.5522461,0-1-0.4472656-1-1s0.4477539-1,1-1h5c0.5512695,0,1-0.4482422,1-1V6c0-0.5527344,0.4477539-1,1-1s1,0.4472656,1,1v5  C20,12.6542969,18.6542969,14,17,14z M24,17c-4.9624023,0-9,4.0371094-9,9s4.0375977,9,9,9s9-4.0371094,9-9S28.9624023,17,24,17z   M24,33c-3.8598633,0-7-3.140625-7-7s3.1401367-7,7-7s7,3.140625,7,7S27.8598633,33,24,33z M27.7070313,24.2929688  c0.390625,0.390625,0.390625,1.0234375,0,1.4140625C27.5117188,25.9023438,27.2558594,26,27,26  s-0.5117188-0.0976563-0.7070313-0.2929688L25,24.4140625V30c0,0.5527344-0.4477539,1-1,1s-1-0.4472656-1-1v-5.5859375  l-1.2929688,1.2929688c-0.390625,0.390625-1.0234375,0.390625-1.4140625,0s-0.390625-1.0234375,0-1.4140625l3-3  c0.390625-0.390625,1.0234375-0.390625,1.4140625,0L27.7070313,24.2929688z"/></svg>
+                            Submit Studies
+                        </a>
                     </nav>
                     <a href="doc-status" style="font-weight: 500; font-size: 14px; margin-left:10px;">
                         <svg
@@ -129,7 +141,7 @@ header h2 {
                             viewBox="0 0 24 24"
                             fill="none"
                             stroke="currentColor"
-                            stroke-width="2"
+                            troke-width="2"
                             stroke-linecap="round"
                             stroke-linejoin="round"
                             class="feather feather-eye"
@@ -137,7 +149,6 @@ header h2 {
                             <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" />
                             <circle cx="12" cy="12" r="3" />
                         </svg>
-
                         View Status
                     </a>
 
@@ -174,114 +185,90 @@ header h2 {
                         {{ session('success') }}
                     </div>
                 @endif
-                <form 
-                    style="background-color: #f5f5f5; padding: 20px; border-radius: 30px;" 
-                    id="documentForm" 
-                    method="post" 
-                    enctype="multipart/form-data" 
-                    action="{{ route('student.submit') }}"
-                >
-                    @csrf
-                   <label for="title">Title:</label>
-                        <input  style="font-weight: bold; border: 1px solid black;" id="title" type="text" name="title" required style="font-weight: bold;"><br>
-                                            <label for="abstract">Abstract:</label><br>
-                        <textarea id="abstract" name="abstract" required 
-                            style="font-weight: bold; border: 1px solid black;"></textarea><br><br>
-               <form id="documentForm" method="post" enctype="multipart/form-data" action="submit"
-      style="background-color: #f5f5f5; padding: 20px; border-radius: 30px;">
-    @csrf
+                <form style="background-color: #f5f5f5; padding: 40px; border-radius: 10px; box-shadow: 5px 5px 1px #04128e;" id="documentForm" method="post" enctype="multipart/form-data" action="{{ route('student.submit') }}">
+                @csrf
+                <label for="title">Title:</label>
+                <input id="title" type="text" name="title" style="font-weight: bold; border: 1px solid black;">
+                <div id="titleError" class="error"></div>
 
-    <label for="title">Title:</label>
-    <input style="font-weight: bold; border: 1px solid black;" id="title" type="text" name="title">
-    <div id="titleError" class="error"></div>
+                <label for="abstract">Abstract:</label>
+                <textarea id="abstract" name="abstract" style="font-weight: bold; border: 1px solid black;"></textarea>
+                <div id="abstractError" class="error"></div>
 
-    <label for="abstract">Abstract:</label>
-    <textarea id="abstract" name="abstract"
-        style="font-weight: bold; border: 1px solid black;"></textarea>
-    <div id="abstractError" class="error"></div>
+                <label for="keywords">Keywords:</label>
+                <input id="keywords" type="text" name="keywords" style="font-weight: bold; border: 1px solid black;">
+                <div id="keywordsError" class="error"></div>
 
+                <label for="teacher_id">Teacher:</label>
+                <select id="teacher_id" name="teacher_id" style="font-weight: bold; border: 1px solid black;">
+                    <option value="">-- Select Teacher --</option>
+                    @foreach($teachers as $teacher)
+                        <option value="{{ $teacher->user_id }}">
+                            {{ $teacher->first_name }} {{ $teacher->last_name }}
+                        </option>
+                    @endforeach
+                </select>
+                <div id="teacherError" class="error"></div>
 
+                <label for="publication_date">Submission Date:</label>
+                <input id="publication_date" type="date" name="publication_date" style="font-weight: bold; border: 1px solid black;">
+                <div id="dateError" class="error"></div>
 
-    <label for="keywords">Keywords:</label>
-    <input id="keywords" type="text" name="keywords"
-        style="font-weight: bold; border: 1px solid black;">
-    <div id="keywordsError" class="error"></div>
+                <label for="citations">Citations (comma-separated):</label>
+                <input id="citations" type="text" name="citations" style="font-weight: bold; border: 1px solid black;">
+                <div id="citationsError" class="error"></div><br>
 
-    <label for="teacher_id">Teacher:</label>
-    <select id="teacher_id" name="teacher_id"
-        style="font-weight: bold; border: 1px solid black;">
-        <option value="">-- Select Teacher --</option>
-        <!-- options here -->
-    </select>
-    <div id="teacherError" class="error"></div>
-
-    <label for="publication_date">Submission Date:</label>
-    <input id="publication_date" type="date" name="publication_date"
-        style="font-weight: bold; border: 1px solid black;">
-    <div id="dateError" class="error"></div>
-
-    <label for="citations">Citations (comma-separated):</label>
-    <input id="citations" type="text" name="citations"
-        style="font-weight: bold; border: 1px solid black;">
-    <div id="citationsError" class="error"></div><br>
-
-    <div class="container">
-        <div class="card"> 
-            <h3>Upload File</h3> 
-            <div class="drop_box">
-                <div class="header">
-                    <h4>Select File here</h4>
+                <div class="container" style="background-color: #f5f5f5;">
+                    <div class="card"> 
+                        <h3>Upload File</h3> 
+                        <div class="drop_box">
+                            <div class="header">
+                                <h4>Select File here</h4>
+                            </div>
+                            <p>Files Supported: PDF</p>
+                            <input type="file" name="file" accept=".pdf" id="fileID" style="display:none;">
+                            <button style="background-color: black;" type="button" class="btn" id="chooseFileBtn">Choose File</button>
+                            <p id="fileNameDisplay" style="color: red;"></p>
+                            <div id="fileError" class="error"></div>
+                        </div>
+                    </div>
                 </div>
-                <p>Files Supported: PDF</p>
-                <input type="file" name="file" accept=".pdf" id="fileID" style="display:none;">
-                <button style="background-color: black;" type="button" class="btn" id="chooseFileBtn">Choose File</button>
-                <p id="fileNameDisplay" style="color: red;"></p>
-                <div id="fileError" class="error"></div>
-            </div>
-        </div>
-    </div>
+                <div class="checkboxes">
+                    <div class="chkbx" style="border-color:#04128e;">
+                        <input class="w3-check" type="checkbox" name="document_types[]" value="Case Study">
+                        <label style="color:#04128e" class="tada">Case Study</label> 
+                    </div>
+                    <div class="chkbx" style="border-color:#04128e">
+                        <input class="w3-check" type="checkbox" name="document_types[]" value="Thesis">
+                        <label style="color:#04128e" class="tada">Thesis</label>
+                    </div>
+                    <div class="chkbx" style="border-color:#04128e">
+                        <input class="w3-check" type="checkbox" name="document_types[]" value="Proposal">
+                        <label style="color:#04128e" class="tada">Proposal</label>
+                    </div>
+                    <div class="chkbx" style="border-color:#04128e">
+                        <input class="w3-check" type="checkbox" name="document_types[]" value="Capstone">
+                        <label style="color:#04128e;" class="tada">Capstone</label>
+                    </div>
+                    <div class="chkbx" style="border-color:#04128e">
+                        <input class="w3-check" type="checkbox" name="document_types[]" value="System Studies">
+                        <label style="color:#04128e" class="tada">System Studies</label>
+                    </div>
+                </div>
+                <div id="typeError" class="error"></div>
 
-<div class="checkboxes">
-    <div class="chkbx" style="border-color:black">
-        <input class="w3-check" type="checkbox" name="document_types[]" value="Case Study">
-        <label style="color:black" class="tada">Case Study</label> 
-    </div>
-    <div class="chkbx" style="border-color:black">
-        <input class="w3-check" type="checkbox" name="document_types[]" value="Thesis">
-        <label style="color:black" class="tada">Thesis</label>
-    </div>
-    <div class="chkbx" style="border-color:black">
-        <input class="w3-check" type="checkbox" name="document_types[]" value="Proposal">
-        <label style="color:black" class="tada">Proposal</label>
-    </div>
-    <div class="chkbx" style="border-color:black">
-        <input class="w3-check" type="checkbox" name="document_types[]" value="Capstone">
-        <label style="color:black" class="tada">Capstone</label>
-    </div>
-    <div class="chkbx" style="border-color:black">
-        <input class="w3-check" type="checkbox" name="document_types[]" value="System Studies">
-        <label style="color:black" class="tada">System Studies</label>
+                <button style="background-color: #04128e; border-radius: 10px; border: none; padding: 15px;" class="submission" type="submit" id="submitButton">Submit</button>
+                <div id="alrt" style="color: black; margin-top: 10px; text-align: center;"></div>
+            </form>
+            <button style="background-color: #04128e" class="submission" type="submit" id="submitButton" disabled>Submit</button>
+            <div id="alrt" style="color: black; margin-top: 10px; text-align: center;"></div>
+        </form>  
     </div>
 </div>
 
-
-    <div id="typeError" class="error"></div>
-
-    <button style="background-color: black" class="submission" type="submit" id="submitButton">Submit</button>
-    <div id="alrt" style="color: black; margin-top: 10px; text-align: center;"></div>
-</form>
-                    <button style="background-color: #04128e" class="submission" type="submit" id="submitButton" disabled>Submit</button>
-                    <div id="alrt" style="color: black; margin-top: 10px; text-align: center;"></div>
-                </form>
-
-            
-            </div>
-        </div>
-
-        <footer>
-        </footer>
-    </main>
-        <script>
+<footer></footer>
+</main>
+    <script>
         const fileInput = document.getElementById('fileID');
         const chooseFileBtn = document.getElementById('chooseFileBtn');
         const fileNameDisplay = document.getElementById('fileNameDisplay');
@@ -294,7 +281,6 @@ header h2 {
             const checkboxSelected = Array.from(checkboxes).some(cb => cb.checked);
             submitButton.disabled = !(fileSelected && checkboxSelected);
         }
-
         // File button click
         chooseFileBtn.addEventListener('click', function() {
             fileInput.click();
@@ -307,47 +293,89 @@ header h2 {
         });
 
         // When any checkbox changes
-        checkboxes.forEach(cb => {
-            cb.addEventListener('change', updateSubmitState);
+        fileInput.addEventListener('change', updateSubmitState);
+        checkboxes.forEach(cb => cb.addEventListener('change', updateSubmitState));
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    @if(session('success'))
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            Swal.fire({
+                icon: 'success',
+                title: 'Success!',
+                text: "{{ session('success') }}",
+                confirmButtonColor: '#04128e',
+            });
         });
     </script>
-</body>
-</html>
+    @endif
 
-<script>
-    document.getElementById('chooseFileBtn').addEventListener('click', function() {
-        document.getElementById('fileID').click();
-    });
+    <script>
+        document.getElementById('chooseFileBtn').addEventListener('click', function() {
+            document.getElementById('fileID').click();
+        });
 
-    document.getElementById('fileID').addEventListener('change', function(){
-        document.getElementById('fileNameDisplay').textContent =
-            this.files.length ? this.files[0].name : '';
-    });
+        document.getElementById('fileID').addEventListener('change', function(){
+            document.getElementById('fileNameDisplay').textContent =
+                this.files.length ? this.files[0].name : '';
+        });
 
-    document.getElementById('documentForm').addEventListener('submit', function(e){
+        document.getElementById('documentForm').addEventListener('submit', function(e){
         let valid = true;
 
-        // Clear previous errors
+        // Clear old errors
         document.querySelectorAll('.error').forEach(el => el.textContent = '');
 
+        // Title validation
         const title = document.getElementById('title').value.trim();
-        if (title.length < 5) {
+        if (title === "") {
+            document.getElementById('titleError').textContent = "Title is required.";
+            valid = false;
+        } else if (title.length < 5) {
             document.getElementById('titleError').textContent = "Title must be at least 5 characters.";
             valid = false;
         }
 
+        // Abstract validation
         const abstract = document.getElementById('abstract').value.trim();
-        if (abstract.length < 50) {
+        if (abstract === "") {
+            document.getElementById('abstractError').textContent = "Abstract is required.";
+            valid = false;
+        } else if (abstract.length < 50) {
             document.getElementById('abstractError').textContent = "Abstract must be at least 50 characters.";
             valid = false;
         }
 
+        // Keywords validation
+        const keywords = document.getElementById('keywords').value.trim();
+        if (keywords === "") {
+            document.getElementById('keywordsError').textContent = "Keywords are required.";
+            valid = false;
+        }
+
+        // Teacher validation
         const teacher = document.getElementById('teacher_id').value;
         if (teacher === "") {
             document.getElementById('teacherError').textContent = "Please select a teacher.";
             valid = false;
         }
 
+        // Date validation
+        const date = document.getElementById('publication_date').value;
+        if (date === "") {
+            document.getElementById('dateError').textContent = "Please select a submission date.";
+            valid = false;
+        }
+
+        // Citations validation
+        const citations = document.getElementById('citations').value.trim();
+        if (citations === "") {
+            document.getElementById('citationsError').textContent = "Citations are required.";
+            valid = false;
+        }
+
+        // File validation
         const fileInput = document.getElementById('fileID');
         if (fileInput.files.length === 0) {
             document.getElementById('fileError').textContent = "Please upload a PDF file.";
@@ -357,100 +385,81 @@ header h2 {
             valid = false;
         }
 
+        // Checkbox validation
         const checks = document.querySelectorAll('input[name="document_types[]"]:checked');
         if (checks.length === 0) {
             document.getElementById('typeError').textContent = "Select at least one document type.";
             valid = false;
         }
 
+        // Stop submission if invalid
         if (!valid) e.preventDefault();
     });
 
-
     document.addEventListener("DOMContentLoaded", function () {
-                            const alrt = document.getElementById('alrt');
-                            const chooseFileBtn = document.getElementById("chooseFileBtn");
-                            const inputFile = document.getElementById("fileID");
-                            const fileNameDisplay = document.getElementById("fileNameDisplay");
-                            const submitButton = document.getElementById("submitButton");
-                            const checkboxes = document.querySelectorAll('.chkbx input'); 
-                            const card = document.getElementsByClassName('card');
-                            const teachers = document.getElementById('teachers');
+        const alrt = document.getElementById('alrt');
+        const chooseFileBtn = document.getElementById("chooseFileBtn");
+        const inputFile = document.getElementById("fileID");
+        const fileNameDisplay = document.getElementById("fileNameDisplay");
+        const submitButton = document.getElementById("submitButton");
+        const checkboxes = document.querySelectorAll('.chkbx input'); 
+        const card = document.getElementsByClassName('card');
+        const teachers = document.getElementById('teachers');
 
-                            chooseFileBtn.addEventListener("click", () => {
-                                inputFile.click();
-                            });
+        chooseFileBtn.addEventListener("click", () => {
+            inputFile.click();
+        });
 
-                            inputFile.addEventListener("change", function () {
-                                const file = this.files[0];
-                                if (file && file.type === "application/pdf") {
-                                    document.querySelectorAll('.card').forEach(card => {
-                                        card.style.backgroundColor = 'white';
-                                    });
-                                    fileNameDisplay.style.color = 'green';
-                                    fileNameDisplay.innerHTML = `${file.name}`;
-                                    submitButton.disabled = false;
-                                } else {
-                                    document.querySelectorAll('.card').forEach(card => {
-                                        card.style.backgroundColor = '#ffcdcd';
-                                    });
-                                    fileNameDisplay.textContent = "No valid file selected";
-                                    this.value = "";
-                                    submitButton.disabled = true;
-                                }
-                            });
-                        });
-                        document.addEventListener("DOMContentLoaded", function () {
-        const checkboxes = document.querySelectorAll('.chkbx');
+        inputFile.addEventListener("change", function () {
+            const file = this.files[0];
+            if (file && file.type === "application/pdf") {
+                document.querySelectorAll('.card').forEach(card => {
+                    card.style.backgroundColor = 'white';
+                });
+                fileNameDisplay.style.color = 'green';
+                fileNameDisplay.innerHTML = `${file.name}`;
+                submitButton.disabled = false;
+            } else {
+                document.querySelectorAll('.card').forEach(card => {
+                    card.style.backgroundColor = '#ffcdcd';
+                });
+                fileNameDisplay.textContent = "No valid file selected";
+                this.value = "";
+                submitButton.disabled = true;
+            }
+        });
+    });
+    document.addEventListener("DOMContentLoaded", function () {
+    const checkboxes = document.querySelectorAll('.chkbx');
 
         checkboxes.forEach(chkbx => {
+            const checkbox = chkbx.querySelector('input[type="checkbox"]');
+            const label = chkbx.querySelector('label');
+
             chkbx.addEventListener('click', (e) => {
-                // Allow clicking the whole box
+                // Ignore direct checkbox click (default behavior)
                 if (e.target.tagName !== 'INPUT') {
-                    const checkbox = chkbx.querySelector('input[type="checkbox"]');
                     checkbox.checked = !checkbox.checked;
                 }
 
-                const checkbox = chkbx.querySelector('input[type="checkbox"]');
-                const label = chkbx.querySelector('label');
-
-                // ✅ Toggle background + text color
+                // Toggle styles
                 if (checkbox.checked) {
                     chkbx.style.backgroundColor = 'black';
                     label.style.color = 'white';
                 } else {
                     chkbx.style.backgroundColor = '';
-                    label.style.color = 'black'; // ✅ Always back to black when unchecked
+                    label.style.color = 'black';
                 }
             });
         });
     });
 
-
-        // @if (session('success'))
-        //     document.addEventListener('DOMContentLoaded', function() {
-        //         const frbg = document.querySelector('.frbg');
-
-        //         frbg.style.visibility = 'hidden';
-        //         setTimeout(() => {
-        //             frbg.classList.add('fade-in');
-        //             frbg.style.visibility = 'visible';
-        //         }, 100);
-
-        //         setTimeout(() => {
-        //             frbg.classList.remove('fade-in');
-        //             frbg.classList.add('fade-out');
-        //         }, 2000);
-
-        //         setTimeout(() => {
-        //             frbg.style.visibility = 'hidden';
-        //             frbg.classList.remove('fade-out');
-        //         }, 2500);
-        //     });
-        // @endif
     document.addEventListener("DOMContentLoaded", function () {
         const dateField = document.getElementById('publication_date');
         const today = new Date().toISOString().split('T')[0]; // YYYY-MM-DD
         dateField.setAttribute('min', today); // ✅ Prevent selecting past days
     });
 </script>
+
+</body>
+</html>

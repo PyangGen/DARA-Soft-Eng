@@ -16,7 +16,7 @@ class StudentController extends Controller
      */
     public function dashboard_page()
     {
-        $studentId = 1; // Get logged-in student's ID
+        $studentId = Auth::id(); // get the actual logged-in student id
 
         // Fetch counts dynamically
         $submittedStudies = DocumentRepository::where('student_id', $studentId)->count();
@@ -51,10 +51,11 @@ class StudentController extends Controller
      *
      * @return \Illuminate\View\View
      */
-     public function submission_page()
+     public function submission()
     {
-        // Load teachers for dropdown
-        $teachers = User::where('role', 'teacher')->get();
+        // Fetch all teachers (assuming role field = 'teacher')
+        $teachers = \App\Models\User::where('role', 'teacher')->get();
+
         return view('student.submission', compact('teachers'));
     }
 
@@ -67,16 +68,16 @@ class StudentController extends Controller
             'publication_date' => 'nullable|date',
             'document_types' => 'required|array',
             'document_types.*' => 'string',
-            'file' => 'required|mimes:pdf|max:20480', // 20MB max
+            'file' => 'required|mimes:pdf|max:20480', // 20MB
         ]);
 
-        // Handle file upload
+        // Upload file
         $filePath = $request->file('file')->store('documents', 'public');
 
         // Save document
         DocumentRepository::create([
             'title' => $request->title,
-            'student_id' => Auth::id(),
+            'student_id' => auth::id(),
             'teacher_id' => $request->teacher_id,
             'authors' => $request->co_authors,
             'citation' => $request->citations,
@@ -90,9 +91,9 @@ class StudentController extends Controller
             'study_type' => implode(', ', $request->document_types),
         ]);
 
-        return redirect()->route('student.submission')->with('success', 'Document submitted successfully!');
+        return redirect()->route('student.submission')
+            ->with('success', 'Document submitted successfully!');
     }
-
     /**
      * Display the student document status page.
      *
@@ -100,8 +101,40 @@ class StudentController extends Controller
      */
     public function doc_status_page()
     {
-        // Assuming there is a doc-status.blade.php view file.
-        return view('student.doc-status');
+    $studentId = Auth::id();
+    // Fetch all documents for the logged-in student
+    $submissions = DocumentRepository::where('student_id', $studentId)
+                    ->latest('date_submitted')
+                    ->get();
+
+    return view('student.doc-status', compact('submissions'));
+    }
+
+    /**
+     * Display the Pending Document.
+     *
+     * @param int $id The PDF ID.
+     * @return \Illuminate\View\View
+     */
+
+    public function viewStatus($id)
+    {
+        $document = DocumentRepository::findOrFail($id);
+        return view('student.view-status', compact('document'));
+    }
+
+    public function abandon($id)
+    {
+        $document = DocumentRepository::findOrFail($id);
+        
+        // Option 1: delete completely
+        $document->delete();
+
+        // Option 2: mark as abandoned (safer)
+        // $document->status = 'abandoned';
+        // $document->save();
+
+        return redirect()->route('student.submission')->with('success', 'Document abandoned successfully.');
     }
 
     /**
