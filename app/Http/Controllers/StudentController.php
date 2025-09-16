@@ -101,7 +101,7 @@ class StudentController extends Controller
     public function doc_status_page()
     {
         // Assuming there is a doc-status.blade.php view file.
-        return view('doc-status');
+        return view('student.doc-status');
     }
 
     /**
@@ -114,7 +114,7 @@ class StudentController extends Controller
     {
         // You can use the $id variable to fetch the correct PDF.
         // For example, return view('pdf-reader', ['pdfId' => $id]);
-        return view('pdf-reader');
+        return view('student.pdf-reader');
     }
 
     /**
@@ -125,6 +125,6 @@ class StudentController extends Controller
     public function account_setting_page()
     {
         // Assuming there is an account-setting.blade.php view file.
-        return view('account-setting');
+        return view('student.account-setting');
     }
 }
