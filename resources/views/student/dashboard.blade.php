@@ -18,10 +18,7 @@
     padding: 10px 30px !important;
     background-color: #fdf9e9;
     border-bottom: 3px solid #000 !important;
-    }
-    .left {
-        border-right: 3px solid #000 !important;
-    }
+    }    
     header h2 {
         letter-spacing: 5px;
 		margin-left: 35px;
@@ -30,12 +27,28 @@
         color: #04128e;
         text-align: left;
     }
+    .home-icon,
+    .feather-log-in {
+        cursor: pointer;
+        transition: transform 0.2s ease;
+    }
+    .home-icon:hover,
+    .feather-log-in:hover {
+        transform: scale(1.2);
+    }
+    .right h1 {
+        font-size: 60px;
+    }
+    .left {
+        border-right: 3px solid #000 !important;
+    }
+
     .profile {
-        margin-top: 10px ;
+        margin: 10px !important;
     }
     .profile h2 {
         font-weight: bold; 
-        font-size: 20px; 
+        font-size: 30px; 
         color: #000;
         letter-spacing: 2px;
     }
@@ -48,12 +61,29 @@
     }
     .cardco .count {
         margin: none;
+        font-size: 80px;
     }
 </style>
 <body >
     <main >
         <header> 
-              <div class="ahh">
+            <!-- Hidden logout form -->
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                @csrf
+            </form>
+            <div class="ahh">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="25"
+                    height="25"
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    class="home-icon">
+                    <path stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="3" 
+                        d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z"/>
+                </svg>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -64,8 +94,7 @@
                     stroke-width="3"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="feather feather-log-in"
-                    >
+                    class="feather feather-log-in">
                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
                     <polyline points="10 17 15 12 10 7" />
                     <line x1="15" y1="12" x2="3" y2="12" />
@@ -101,7 +130,7 @@
                        <!DOCTYPE svg  PUBLIC '-//W3C//DTD SVG 1.1//EN'  'http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd'><svg enable-background="new 0 0 50 50" height="24px" id="Layer_1" version="1.1" viewBox="0 0 50 50" width="24px" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><rect fill="none" height="50" width="50"/><circle cx="21" cy="20" fill="none" r="16" stroke="#000000" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2"/><line fill="none" stroke="#000000" stroke-miterlimit="10" stroke-width="4" x1="32.229" x2="45.5" y1="32.229" y2="45.5"/></svg>
                         Search Studies
                     </a>
-                     <a href="submission" style="font-weight: 500; font-size: 14px;  margin-left:10px;">
+                    <a href="submission" style="font-weight: 500; font-size: 14px;  margin-left:10px;">
                         <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path d="M35,2H17c-0.2651367,0-0.5195313,0.1054688-0.7070313,0.2929688l-8,8C8.1054688,10.4804688,8,10.734375,8,11v30  c0,2.7568359,2.2431641,5,5,5h22c2.7568359,0,5-2.2431641,5-5V7C40,4.2431641,37.7568359,2,35,2z M38,41  c0,1.6542969-1.3457031,3-3,3H13c-1.6542969,0-3-1.3457031-3-3V11.4140625L17.4140625,4H35c1.6542969,0,3,1.3457031,3,3V41z M17,14  h-5c-0.5522461,0-1-0.4472656-1-1s0.4477539-1,1-1h5c0.5512695,0,1-0.4482422,1-1V6c0-0.5527344,0.4477539-1,1-1s1,0.4472656,1,1v5  C20,12.6542969,18.6542969,14,17,14z M24,17c-4.9624023,0-9,4.0371094-9,9s4.0375977,9,9,9s9-4.0371094,9-9S28.9624023,17,24,17z   M24,33c-3.8598633,0-7-3.140625-7-7s3.1401367-7,7-7s7,3.140625,7,7S27.8598633,33,24,33z M27.7070313,24.2929688  c0.390625,0.390625,0.390625,1.0234375,0,1.4140625C27.5117188,25.9023438,27.2558594,26,27,26  s-0.5117188-0.0976563-0.7070313-0.2929688L25,24.4140625V30c0,0.5527344-0.4477539,1-1,1s-1-0.4472656-1-1v-5.5859375  l-1.2929688,1.2929688c-0.390625,0.390625-1.0234375,0.390625-1.4140625,0s-0.390625-1.0234375,0-1.4140625l3-3  c0.390625-0.390625,1.0234375-0.390625,1.4140625,0L27.7070313,24.2929688z"/></svg>
                     
                         Submit Studies
@@ -275,6 +304,39 @@
         <footer>
         </footer>
     </main>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Home icon redirect
+            const homeIcon = document.querySelector(".home-icon");
+            if (homeIcon) {
+                homeIcon.addEventListener("click", function () {
+                    window.location.href = "/student/dashboard"; 
+                });
+            }
+
+            // Logout confirmation
+            const logoutIcon = document.querySelector(".feather-log-in");
+            if (logoutIcon) {
+                logoutIcon.addEventListener("click", function () {
+                    Swal.fire({
+                        title: "Are you sure?",
+                        text: "You will be logged out of your account.",
+                        icon: "warning",
+                        showCancelButton: true,
+                        confirmButtonColor: "#3085d6",
+                        cancelButtonColor: "#d33",
+                        confirmButtonText: "Yes, log me out"
+                    }).then((result) => {
+                        if (result.isConfirmed) {
+                            document.getElementById("logout-form").submit();
+                        }
+                    });
+                });
+            }
+        });
+    </script>
+    <script src="js/index.js"></script>
 </body>
 </html>
-<script src="js/index.js"></script>
+

@@ -6,78 +6,97 @@
     <link rel="stylesheet" href="{{ asset('css/mainpage.css') }}">
     <link rel="stylesheet" href="{{ asset('css/std_control.css') }}">
     <link rel="stylesheet" href="{{ asset('css/svg.css') }}">
-    <style>
-        body {
-            background-color: #fdf9e9;
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        header {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 10px 20px;
-            background-color: #fdf9e9;
-            border-bottom: 2px solid #000;
-        }
-        header h2 {
-            margin: 0;
-            font-weight: bold;
-            color: #04128e;
-        }
+<style>
+    body {
+        background-color: #fdf9e9;
+        margin: 0;
+        font-family: Arial, sans-serif;
+    }
+    header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px !important;
+    background-color: #fdf9e9;
+    border-bottom: 3px solid #000 !important;
+	}
+	.left {
+		border-right: 3px solid #000 !important;
+	}
+	header h2 {
+        letter-spacing: 5px;
+		margin-left: 35px;
+		padding: 0;
+		font-weight: bold;
+		color: #04128e;
+		text-align: left;
+	}
+    .profile {
+        margin-top: 10px ;
+    }
+    .profile h2 {
+        font-weight: bold; 
+        font-size: 20px; 
+        color: #000;
+        letter-spacing: 2px;
+    }
+	.ahh {
+		display: flex;
+		align-items: center;
+	}
 
-        .register-container {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 85vh;
-        }
-        .register-box {
-            background: #e9e9e9;
-            padding: 40px;
-            border-radius: 20px;
-            width: 450px;
-        }
-        .register-box h2 {
-            color: #0a0099;
-            margin-bottom: 20px;
-            font-weight: 800;
-            text-align: center;
-        }
-        .register-box label {
-            display: block;
-            font-weight: bold;
-            margin-top: 12px;
-            margin-bottom: 5px;
-        }
-        .register-box input {
-            width: 100%;
-            padding: 10px;
-            border: none;
-            border-radius: 6px;
-            font-size: 15px;
-            margin-bottom: 10px;
-        }
-        .register-box button {
-            background: #0a0099;
-            color: white;
-            border: none;
-            width: 100%;
-            padding: 12px;
-            border-radius: 6px;
-            font-size: 16px;
-            margin-top: 15px;
-            cursor: pointer;
-        }
-        .register-box button:hover {
-            background: #05005c;
-        }
-        .error {
-            color: red;
-            font-size: 14px;
-            margin-bottom: 8px;
-        }
-    </style>
+    .register-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: 85vh;
+    }
+    .register-box {
+        background: #e9e9e9;
+        padding: 40px;
+        border-radius: 20px;
+        width: 450px;
+    }
+    .register-box h2 {
+        color: #0a0099;
+        margin-bottom: 20px;
+        font-weight: 800;
+        text-align: center;
+    }
+    .register-box label {
+        display: block;
+        font-weight: bold;
+        margin-top: 12px;
+        margin-bottom: 5px;
+    }
+    .register-box input {
+        width: 100%;
+        padding: 10px;
+        border: none;
+        border-radius: 6px;
+        font-size: 15px;
+        margin-bottom: 10px;
+    }
+    .register-box button {
+        background: #0a0099;
+        color: white;
+        border: none;
+        width: 100%;
+        padding: 12px;
+        border-radius: 6px;
+        font-size: 16px;
+        margin-top: 15px;
+        cursor: pointer;
+    }
+    .register-box button:hover {
+        background: #05005c;
+    }
+    .error {
+        color: red;
+        font-size: 14px;
+        margin-bottom: 8px;
+    }
+</style>
 </head>
 <body>
     <main>
@@ -86,7 +105,7 @@
         </header>
 
         <div class="register-container">
-            <div class="register-box">
+            <div class="register-box" style="box-shadow: 5px 5px 1px #04128e;">
                 <h2>STUDENT REGISTRATION</h2>
 
                 @if ($errors->any())

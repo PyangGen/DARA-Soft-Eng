@@ -160,4 +160,62 @@ class StudentController extends Controller
         // Assuming there is an account-setting.blade.php view file.
         return view('student.account-setting');
     }
+/**
+     * Verify student identity (password check before editing).
+     */
+    public function verify_identity(Request $request)
+    {
+        $request->validate([
+            'password' => 'required|string',
+        ]);
+
+        $user = Auth::user();
+
+        if (!\Illuminate\Support\Facades\Hash::check($request->password, $user->password_hash)) {
+            return back()->withErrors(['login_error' => 'Incorrect password. Please try again.']);
+        }
+
+        // Store in session that user has verified identity
+        session(['account_verified' => true]);
+
+        return redirect()->route('student.account_setting');
+    }
+
+    /**
+     * Update student account after verification.
+     */
+    public function update_account(Request $request)
+    {
+        $user = Auth::user();
+
+        if (!session('account_verified')) {
+            return redirect()->route('student.account_setting')
+                ->withErrors(['login_error' => 'You must verify your identity before updating your account.']);
+        }
+
+        $request->validate([
+            'usn' => 'required|string|max:255',
+            'first_name' => 'required|string|max:255',
+            'last_name' => 'required|string|max:255',
+            'email' => 'required|email|max:255',
+            'password' => 'nullable|string|min:6',
+        ]);
+
+        $user->usn = $request->usn;
+        $user->first_name = $request->first_name;
+        $user->last_name = $request->last_name;
+        $user->email = $request->email;
+
+        if ($request->filled('password')) {
+            $user->password_hash = \Illuminate\Support\Facades\Hash::make($request->password);
+        }
+
+        $user->save();
+
+        // Remove verification session after update
+        session()->forget('account_verified');
+
+        return redirect()->route('student.account_setting')
+            ->with('success', 'Account updated successfully!');
+    }
 }

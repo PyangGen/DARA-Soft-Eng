@@ -41,11 +41,11 @@
 		text-align: left;
 	}
     .profile {
-        margin-top: 10px ;
+        margin: 10px !important;
     }
     .profile h2 {
         font-weight: bold; 
-        font-size: 20px; 
+        font-size: 30px; 
         color: #000;
         letter-spacing: 2px;
     }
@@ -108,23 +108,34 @@
 		<main >
             <header> 
                 <div class="ahh">
-                    <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="25"
-                        height="25"
-                        viewBox="0 0 24 24"
-                        fill="none"
-                        stroke="currentColor"
-                        stroke-width="3"
-                        stroke-linecap="round"
-                        stroke-linejoin="round"
-                        class="feather feather-log-in"
-                        >
-                        <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
-                        <polyline points="10 17 15 12 10 7" />
-                        <line x1="15" y1="12" x2="3" y2="12" />
-                    </svg>
-                </div>
+					<svg xmlns="http://www.w3.org/2000/svg" 
+						width="25"
+						height="25"
+						viewBox="0 0 24 24" 
+						fill="none" 
+						stroke="currentColor" 
+						class="home-icon">
+						<path stroke-linecap="round" 
+							stroke-linejoin="round" 
+							stroke-width="3" 
+							d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z"/>
+					</svg>
+					<svg
+						xmlns="http://www.w3.org/2000/svg"
+						width="25"
+						height="25"
+						viewBox="0 0 24 24"
+						fill="none"
+						stroke="currentColor"
+						stroke-width="3"
+						stroke-linecap="round"
+						stroke-linejoin="round"
+						class="feather feather-log-in">
+						<path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
+						<polyline points="10 17 15 12 10 7" />
+						<line x1="15" y1="12" x2="3" y2="12" />
+					</svg>
+				</div>
                 <h2 >DARA</h2>
             </header> 
 				 

@@ -11,7 +11,9 @@ use App\Http\Controllers\StudentController; // Student Functions
 use App\Http\Controllers\TeacherController; // Teacher Functions
 use App\Http\Controllers\AdminController; // Admin Functions
 
-
+Route::get('/static', function () {
+    return view('static');
+})->name('static.page');
 
 Route::prefix('/')->group(function (){
     Route::get('/', [QueryController::class, 'landing_page']);
@@ -43,7 +45,9 @@ Route::prefix('student')->group(function (){
     Route::get('/view-status/{id}', [StudentController::class, 'viewStatus'])->name('student.view-status');
     Route::delete('/abandon/{id}', [StudentController::class, 'abandon'])->name('student.abandon');
     Route::get('/pdf-reader/{id}', [StudentController::class, 'pdf_reader_page']);
-    Route::get('/account-setting/', [StudentController::class, 'account_setting_page']);
+    Route::get('/account-setting', [StudentController::class, 'account_setting_page'])->name('student.account_setting');
+    Route::post('/account-setting/verify', [StudentController::class, 'verify_identity'])->name('student.verify_identity');
+    Route::post('/account-setting/update', [StudentController::class, 'update_account'])->name('student.update_account');
 
     // Route::post(); // Back End
 

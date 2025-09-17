@@ -39,11 +39,11 @@
         text-align: left;
     }
     .profile {
-    margin-top: 10px ;
+        margin: 10px !important;
     }
     .profile h2 {
         font-weight: bold; 
-        font-size: 20px; 
+        font-size: 30px; 
         color: #000;
         letter-spacing: 2px;
     }
@@ -52,16 +52,66 @@
         align-items: center;
     }
     .right {
-        overflow: auto; 
-        /* display: flex; 
-        justify-content: center; 
-        align-items: center; */
+        overflow: auto;
+        display: flex;
+        flex-direction: column;
+        align-content: center;
+        justify-content: flex-start
+    }
+    .login-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .login-box {
+        background: #e9e9e9;
+        padding: 40px;
+        border-radius: 20px;
+        text-align: center;
+        width: 400px;
+    }
+    .login-box h2 {
+        color: #0a0099;
+        margin-bottom: 20px;
+        font-weight: 800;
+    }
+    .login-box label {
+        display: block;
+        text-align: left;
+        font-weight: bold;
+        margin-bottom: 8px;
+    }
+    .login-box input {
+        width: 100%;
+        padding: 10px;
+        margin-bottom: 18px;
+        border: none;
+        border-radius: 6px;
+        font-size: 16px;
+    }
+    .login-box button {
+        background: #0a0099;
+        color: white;
+        border: none;
+        padding: 12px 25px;
+        border-radius: 6px;
+        font-size: 16px;
+        cursor: pointer;
+    }
+    .login-box button:hover {
+        background: #05005c;
+    }
+    .error {
+        color: red;
+        margin-bottom: 15px;
+        font-size: 14px;
     }
     .register-container {
         display: flex;
         align-items: center;
         justify-content: center;
-        height: 85vh;
+        height: auto;
     }
     .register-box {
         background: #e9e9e9;
@@ -89,7 +139,7 @@
         font-size: 15px;
         margin-bottom: 10px;
     }
-    .register-box button {
+    .register-box a, button {
         background: #0a0099;
         color: white;
         border: none;
@@ -99,6 +149,7 @@
         font-size: 16px;
         margin-top: 15px;
         cursor: pointer;
+        text-align: center
     }
     .register-box button:hover {
         background: #05005c;
@@ -113,6 +164,18 @@
 		<main >
             <header> 
                 <div class="ahh">
+                    <svg xmlns="http://www.w3.org/2000/svg" 
+                        width="25"
+                        height="25"
+                        viewBox="0 0 24 24" 
+                        fill="none" 
+                        stroke="currentColor" 
+                        class="home-icon">
+                        <path stroke-linecap="round" 
+                            stroke-linejoin="round" 
+                            stroke-width="3" 
+                            d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z"/>
+                    </svg>
                     <svg
                         xmlns="http://www.w3.org/2000/svg"
                         width="25"
@@ -123,8 +186,7 @@
                         stroke-width="3"
                         stroke-linecap="round"
                         stroke-linejoin="round"
-                        class="feather feather-log-in"
-                        >
+                        class="feather feather-log-in">
                         <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
                         <polyline points="10 17 15 12 10 7" />
                         <line x1="15" y1="12" x2="3" y2="12" />
@@ -154,7 +216,6 @@
                         </a>
                         <a href="submission" style="font-weight: 500; font-size: 14px;  margin-left:10px;">
                             <svg height="26" width="26" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" id="Layer_1" viewBox="0 0 48 48" enable-background="new 0 0 48 48" xml:space="preserve"><path d="M35,2H17c-0.2651367,0-0.5195313,0.1054688-0.7070313,0.2929688l-8,8C8.1054688,10.4804688,8,10.734375,8,11v30  c0,2.7568359,2.2431641,5,5,5h22c2.7568359,0,5-2.2431641,5-5V7C40,4.2431641,37.7568359,2,35,2z M38,41  c0,1.6542969-1.3457031,3-3,3H13c-1.6542969,0-3-1.3457031-3-3V11.4140625L17.4140625,4H35c1.6542969,0,3,1.3457031,3,3V41z M17,14  h-5c-0.5522461,0-1-0.4472656-1-1s0.4477539-1,1-1h5c0.5512695,0,1-0.4482422,1-1V6c0-0.5527344,0.4477539-1,1-1s1,0.4472656,1,1v5  C20,12.6542969,18.6542969,14,17,14z M24,17c-4.9624023,0-9,4.0371094-9,9s4.0375977,9,9,9s9-4.0371094,9-9S28.9624023,17,24,17z   M24,33c-3.8598633,0-7-3.140625-7-7s3.1401367-7,7-7s7,3.140625,7,7S27.8598633,33,24,33z M27.7070313,24.2929688  c0.390625,0.390625,0.390625,1.0234375,0,1.4140625C27.5117188,25.9023438,27.2558594,26,27,26  s-0.5117188-0.0976563-0.7070313-0.2929688L25,24.4140625V30c0,0.5527344-0.4477539,1-1,1s-1-0.4472656-1-1v-5.5859375  l-1.2929688,1.2929688c-0.390625,0.390625-1.0234375,0.390625-1.4140625,0s-0.390625-1.0234375,0-1.4140625l3-3  c0.390625-0.390625,1.0234375-0.390625,1.4140625,0L27.7070313,24.2929688z"/></svg>
-                    
                             Submit Studies
                         </a>
                     <a href="doc-status" style="font-weight: 500; font-size: 14px;  margin-left:10px;" >
@@ -195,52 +256,100 @@
 			</div>
 
         <div class="right">
-            <h1 style="font-weight: bold; color: black; font-size: 40px; margin-top: 60px">
+            <h1 style="font-weight: bold; color: black; font-size: 40px;">
                 ACCOUNT SETTINGS
             </h1>
-            <div class="register-container">
-                <div class="register-box">
-                    <h2>STUDENT REGISTRATION</h2>
 
-                    @if ($errors->any())
-                        <div class="error">
-                            <ul>
-                                @foreach ($errors->all() as $error)
-                                    <li>{{ $error }}</li>
-                                @endforeach
-                            </ul>
-                        </div>
-                    @endif
+            <!-- Login Form -->
+            @if (!session('account_verified'))
+                <div class="login-container">
+                    <div class="login-box" style="box-shadow: 5px 5px 1px #04128e;">
+                        <h2>VERIFY YOUR IDENTITY</h2>
+                        
+                        @if ($errors->has('login_error'))
+                            <div class="error">{{ $errors->first('login_error') }}</div>
+                        @endif
 
-                    <form method="POST" action="">
-                        @csrf
-                        <label for="first_name">First Name</label>
-                        <input type="text" name="first_name" id="first_name" required>
-
-                        <label for="last_name">Last Name</label>
-                        <input type="text" name="last_name" id="last_name" required>
-
-                        <label for="usn">Username (USN)</label>
-                        <input type="text" name="usn" id="usn" required>
-
-                        <label for="email">Email</label>
-                        <input type="email" name="email" id="email" required>
-
-                        <label for="phone_number">Phone Number</label>
-                        <input type="text" name="phone_number" id="phone_number">
-
-                        <label for="password">Password</label>
-                        <input type="password" name="password" id="password" required>
-
-                        <label for="password_confirmation">Confirm Password</label>
-                        <input type="password" name="password_confirmation" id="password_confirmation" required>
-
-                        <button type="submit">Register</button>
-                    </form>
+                        <form method="POST" action="{{ route('student.verify_identity') }}">
+                            @csrf
+                            <label for="password">Enter your password</label>
+                            <input type="password" name="password" id="password" required>
+                            <button type="submit">Verify</button>
+                        </form>
+                    </div>
                 </div>
-            </div>
+            @else
+                <div class="register-container">
+                    <div class="register-box" style="box-shadow: 5px 5px 1px #04128e;">
+                        <h2 style="color: #0a0099; font-weight: 800; text-align: center; margin-bottom: 25px;">
+                            Edit Your Account
+                        </h2>
+
+                        @if ($errors->any())
+                            <div class="error">
+                                <ul>
+                                    @foreach ($errors->all() as $error)
+                                        <li>{{ $error }}</li>
+                                    @endforeach
+                                </ul>
+                            </div>
+                        @endif
+
+                        <form method="POST" action="{{ route('student.update_account') }}">
+                            @csrf
+
+                            <!-- Username -->
+                            <label for="usn">Username</label>
+                            <input type="text" name="usn" id="usn" value="{{ old('usn', Auth::user()->usn ?? '') }}">
+
+                            <!-- First + Last Name (side by side) -->
+                            <div style="display: flex; gap: 40px; margin-bottom: 15px;">
+                                <div style="flex: 1;">
+                                    <label for="first_name">Edit First Name</label>
+                                    <input type="text" name="first_name" id="first_name"
+                                        value="{{ old('first_name', Auth::user()->first_name ?? '') }}">
+                                </div>
+                                <div style="flex: 1;">
+                                    <label for="last_name">Edit Last Name</label>
+                                    <input type="text" name="last_name" id="last_name"
+                                        value="{{ old('last_name', Auth::user()->last_name ?? '') }}">
+                                </div>
+                            </div>
+
+                            <!-- Email -->
+                            <label for="email">Edit Email Address</label>
+                            <input type="email" name="email" id="email" value="{{ old('email', Auth::user()->email ?? '') }}">
+
+                            <!-- Password -->
+                            <label for="password">
+                                New Password <span style="font-weight: normal; font-size: 13px; color: #333;">
+                                    (leave blank to keep current password)
+                                </span>
+                            </label>
+                            <input type="password" name="password" id="password">
+
+                            <!-- Buttons -->
+                            <div style="display: flex; justify-content: center; gap: 15px; margin-top: 20px;">
+                                <button type="submit"
+                                        style="background-color: #0a0099; color: white; border: none;
+                                            padding: 12px 20px; border-radius: 8px; font-size: 16px;
+                                            font-weight: bold; cursor: pointer;">
+                                    Update Account
+                                </button>
+
+                                <a href="{{ url()->previous() }}"
+                                style="background-color: #b30000; color: white; text-decoration: none;
+                                        12px 10px; border-radius: 8px; font-size: 16px;
+                                        font-weight: bold; display: inline-block;">
+                                    Cancel
+                                </a>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            @endif
         </div>
-	</div>
+    </div>
 </div>
 </main>
 </body>

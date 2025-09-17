@@ -39,11 +39,11 @@
         text-align: left;
     }
     .profile {
-    margin-top: 10px ;
+        margin: 10px !important;
     }
     .profile h2 {
         font-weight: bold; 
-        font-size: 20px; 
+        font-size: 30px; 
         color: #000;
         letter-spacing: 2px;
     }
@@ -83,6 +83,18 @@
     <main>
         <header> 
             <div class="ahh">
+                <svg xmlns="http://www.w3.org/2000/svg" 
+                    width="25"
+                    height="25"
+                    viewBox="0 0 24 24" 
+                    fill="none" 
+                    stroke="currentColor" 
+                    class="home-icon">
+                    <path stroke-linecap="round" 
+                        stroke-linejoin="round" 
+                        stroke-width="3" 
+                        d="M3 9.75L12 3l9 6.75V21a.75.75 0 01-.75.75h-5.25a.75.75 0 01-.75-.75v-4.5a.75.75 0 00-.75-.75h-3a.75.75 0 00-.75.75V21a.75.75 0 01-.75.75H3.75A.75.75 0 013 21V9.75z"/>
+                </svg>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
                     width="25"
@@ -93,8 +105,7 @@
                     stroke-width="3"
                     stroke-linecap="round"
                     stroke-linejoin="round"
-                    class="feather feather-log-in"
-                    >
+                    class="feather feather-log-in">
                     <path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4" />
                     <polyline points="10 17 15 12 10 7" />
                     <line x1="15" y1="12" x2="3" y2="12" />
@@ -105,11 +116,12 @@
         
         <div class="main" style="height: 100%; ">
             <div class="left">
-                <div class="profile">
-                    <h2></h2>
-                </div>
-
-                <nav class="nav-links">
+                <nav class="nav-links">                    
+                    <div class="profile">
+                        <h2>
+                            {{ Auth::user()->first_name }}
+                        </h2>
+                    </div>
                     <a href="dashboard" style="font-weight: 500; font-size: 14px; margin-left:10px;">
                        <svg width="24"
                             height="24"  enable-background="new 0 0 64 64" id="Layer_1" version="1.1" viewBox="0 0 64 64" xml:space="preserve" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"><g><path d="M38,54.0001221c0,1.1044922,0.8955078,2,2,2s2-0.8955078,2-2v-1c0-4.9624023-4.0375977-9-9-9h-2   c-4.9624023,0-9,4.0375977-9,9v1c0,1.1044922,0.8955078,2,2,2s2-0.8955078,2-2v-1c0-2.7568359,2.2431641-5,5-5h2   c2.7568359,0,5,2.2431641,5,5V54.0001221z"/><path d="M61.2695313,24.4547119l-28-23c-0.7382813-0.6064453-1.8007813-0.6064453-2.5390625,0l-28,23   C2.2680664,24.8345947,2,25.4014893,2,26.0001221v8c0,1.1044922,0.8955078,2,2,2h3v25c0,1.1044922,0.8955078,2,2,2h15   c1.1044922,0,2-0.8955078,2-2s-0.8955078-2-2-2H11v-25c0-1.1044922-0.8955078-2-2-2H6v-5.0546875L32,5.588501l26,21.3569336   v5.0546875h-3c-1.1044922,0-2,0.8955078-2,2v25H40c-1.1044922,0-2,0.8955078-2,2s0.8955078,2,2,2h15c1.1044922,0,2-0.8955078,2-2   v-25h3c1.1044922,0,2-0.8955078,2-2v-8C62,25.4014893,61.7319336,24.8345947,61.2695313,24.4547119z"/></g></svg>
