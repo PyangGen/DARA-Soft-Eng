@@ -81,7 +81,7 @@
         background: #0a0099;
         color: white;
         border: none;
-        padding: 12px 25px;
+        padding: 12px 60px;
         border-radius: 6px;
         font-size: 16px;
         cursor: pointer;

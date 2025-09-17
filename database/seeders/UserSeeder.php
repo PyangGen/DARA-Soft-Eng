@@ -58,8 +58,8 @@ class UserSeeder extends Seeder
                 'updated_at'     => '2025-09-05 14:20:00',
             ],
             [
-                'first_name'     => 'admin',
-                'last_name'      => 'administrator',
+                'first_name'     => 'Admin',
+                'last_name'      => 'Administrator',
                 'usn'            => '30000',
                 'password_hash'  => Hash::make('123123'),
                 'email'          => 'admin@gmail.com',
